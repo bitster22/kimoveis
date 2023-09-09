@@ -1,7 +1,7 @@
 import { Category } from "../entities";
 import { CategoryCreate, CategoryRead } from "../interfaces";
 import { categoryRepository, realEstateRepository } from "../repositories";
-import { categoryReadSchema } from "../schemas";
+import { categoryReadSchema, realEstateFullReturnSchema } from "../schemas";
 
 const createCategory = async (payload: CategoryCreate): Promise<Category> => {
   const category: Category = categoryRepository.create(payload);
@@ -15,17 +15,22 @@ const readCategory =async (): Promise<CategoryRead> => {
 }
 
 const retrieveRealEstateCategory =async (categoryId:number) => {
-  const realEstate = await realEstateRepository.find({
-    relations: 
-    {
-    category: true,
-    address: true
-    },
+//   const realEstate = await realEstateRepository.find({
+//     where:{
+//       category: {id: categoryId}
+//     }
+//   })
+// return realEstate;
+
+  const category = await categoryRepository.findOne({
     where:{
-      category: {id: categoryId}
+      id: categoryId
+    },
+    relations:{
+      realEstate: true
     }
   })
-return realEstate;
+  return category
 }
 
 export default { createCategory, readCategory, retrieveRealEstateCategory };

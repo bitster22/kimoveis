@@ -11,7 +11,7 @@ export const idCategoryRealEstateExists = async (
   const id: number = Number(req.params.id);
 
   const foundCategoryRealEstate: Category | null = await categoryRepository.findOneBy({id});
-  if(!foundCategoryRealEstate) throw new AppError("Real Estate not found", 404)
+  if(!foundCategoryRealEstate) throw new AppError("Category not found", 404)
 
   return next();
 };

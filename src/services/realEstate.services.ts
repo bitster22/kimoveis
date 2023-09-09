@@ -2,6 +2,7 @@ import { Address, Category, RealEstate } from "../entities";
 import { AppError } from "../errors";
 import { realEstateCreate } from "../interfaces";
 import { addressRepository, categoryRepository, realEstateRepository } from "../repositories";
+import { realEstateFullReturnSchema, realEstateReturnSchema } from "../schemas";
 
 
 const createRealEstate =async (payload: realEstateCreate) => {    
@@ -19,17 +20,19 @@ const createRealEstate =async (payload: realEstateCreate) => {
     })
 
     await realEstateRepository.save(realEstate);
+    realEstate.value = realEstate.value.toString()
 
-    return realEstate
+    return realEstateFullReturnSchema.parse(realEstate);
 }
 
 const readRealEstate =async () => {
     const realEstate = await realEstateRepository.find({
         relations: {
-            address: true
+            address: true,
         }
     })
-    return realEstate;
+    // console.log(realEstateSchema.array().parse(realEstate))
+    return realEstateReturnSchema.array().parse(realEstate);
 }
 
 export default { createRealEstate, readRealEstate}

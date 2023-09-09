@@ -1,11 +1,13 @@
 import { z } from "zod";
-import { addressCreateSchema } from "./address.schemas";
+import { addressCreateSchema, addressSchema } from "./address.schemas";
+import { categorySchema } from "./category.schemas";
+// import { categorySchema } from "./category.schemas";
 // import { categoryCreateSchema, categorySchema } from "./category.schemas";
 
 const realEstateSchema = z.object({
     id: z.number().positive(),
     sold: z.boolean().default(false),
-    value: z.number().positive(),
+    value: z.string(),
     size: z.number().positive(),
     // category: categorySchema.array(),
     // address: addressSchema.array(),
@@ -21,7 +23,20 @@ const realEstateCreateSchema = realEstateSchema.omit({
 .extend({
     // category: categoryCreateSchema.array(),
     categoryId: z.number().positive(),
-    address: addressCreateSchema
+    address: addressCreateSchema,
+    value: z.number().positive()
 })
 
-export { realEstateSchema, realEstateCreateSchema}
+const realEstateReturnSchema = realEstateSchema
+// .omit({
+//     updatedAt: true
+// })
+.extend({
+    address: addressSchema
+})
+
+const realEstateFullReturnSchema = realEstateReturnSchema.extend({
+    category: categorySchema
+})
+
+export { realEstateSchema, realEstateCreateSchema, realEstateReturnSchema, realEstateFullReturnSchema}

@@ -14,7 +14,6 @@ export const handleError = (
   }
 
   if (error instanceof ZodError) {
-    console.error(error);
     return res.status(400).json(error.flatten().fieldErrors);
   }
 

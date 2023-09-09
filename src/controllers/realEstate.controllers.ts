@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 import { realEstateServices } from "../services";
-import { addressCreate, realEstateCreate } from "../interfaces";
 
 const createRealEstate =async (req: Request, res: Response): Promise<Response> => {
-    const realEstate = await realEstateServices.createRealEstate(req.body)
+    const valueString = req.body.value.toString();
+    const realEstate = await realEstateServices.createRealEstate({...req.body, valueString})
     
     return res.status(201).json(realEstate);
 }

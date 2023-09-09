@@ -11,7 +11,7 @@ import { categorySchema,
   categoryCreateSchema,
   categoryReadSchema} from "./category.schemas"
 
-  import { realEstateSchema, realEstateCreateSchema} from "./realEstate.schemas"
+  import { realEstateSchema, realEstateCreateSchema, realEstateReturnSchema, realEstateFullReturnSchema} from "./realEstate.schemas"
 
 import{scheduleSchema, scheduleCreateSchema} from "./schedule.schemas"
 
@@ -28,5 +28,7 @@ import{scheduleSchema, scheduleCreateSchema} from "./schedule.schemas"
     scheduleSchema, 
     scheduleCreateSchema,
     realEstateSchema, 
-    realEstateCreateSchema
+    realEstateCreateSchema,
+    realEstateReturnSchema,
+    realEstateFullReturnSchema
 };

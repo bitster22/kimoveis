@@ -12,7 +12,7 @@ export class RealEstate{
     sold: boolean;
 
     @Column({type: "decimal", precision: 12, scale: 2})
-    value: number;
+    value: string|number;
 
     @Column()
     size: number;
@@ -21,7 +21,7 @@ export class RealEstate{
     createdAt: string;
 
     @UpdateDateColumn({type: "date"})
-    updateAt: string;
+    updatedAt: string;
 
     @OneToMany(()=> Schedule, (s) => s.realEstate)
     schedule: Array<Schedule>

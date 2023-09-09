@@ -12,7 +12,7 @@ export const uniqueCategory = async (
   if (!name) return next();
 
   const foundCategory: Category | null = await categoryRepository.findOneBy({ name });
-  if (foundCategory) throw new AppError("Email already exists", 409);
+  if (foundCategory) throw new AppError("Category already exists", 409);
 
   return next();
 };
