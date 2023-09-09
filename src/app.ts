@@ -4,7 +4,8 @@ import express from 'express';
 import{
     userRouter,
     sessionRouter,
-    categoryRouter
+    categoryRouter,
+    realEstateRouter
 } from "./routers"
 import middlewares from './middlewares';
 import { scheduleRouter } from './routers/schedule.router';
@@ -16,6 +17,7 @@ app.use("/users", userRouter);
 app.use("/login", sessionRouter);
 app.use("/categories", categoryRouter);
 app.use("/schedules", scheduleRouter);
+app.use("/realEstate", realEstateRouter);
 
 app.use(middlewares.handleError);
 

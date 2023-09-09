@@ -21,6 +21,15 @@ import{
   ScheduleCreate
 } from "./schedule.interfaces"
 
+import{
+  realEstateCreate, realEstateRepo
+} from "./realEstate.interfaces"
+
+import{
+  addressCreate, 
+  addressRepo
+} from "./address.interface"
+
   export {
     UserCreate,
     UserRead,
@@ -33,5 +42,7 @@ import{
     CategoryCreate,
     CategoryRead,
     ScheduleRepo, 
-    ScheduleCreate
+    ScheduleCreate,
+    addressCreate, 
+    addressRepo,realEstateCreate, realEstateRepo
   };

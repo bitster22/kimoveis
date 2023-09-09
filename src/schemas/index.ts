@@ -10,6 +10,9 @@ import { sessionSchema } from "./session.schemas";
 import { categorySchema, 
   categoryCreateSchema,
   categoryReadSchema} from "./category.schemas"
+
+  import { realEstateSchema, realEstateCreateSchema} from "./realEstate.schemas"
+
 import{scheduleSchema, scheduleCreateSchema} from "./schedule.schemas"
 
   export {
@@ -23,5 +26,7 @@ import{scheduleSchema, scheduleCreateSchema} from "./schedule.schemas"
     categoryCreateSchema,
     categoryReadSchema,
     scheduleSchema, 
-    scheduleCreateSchema
+    scheduleCreateSchema,
+    realEstateSchema, 
+    realEstateCreateSchema
 };
