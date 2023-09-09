@@ -1,19 +1,17 @@
 import { Address, Category, RealEstate } from "../entities";
 import { AppError } from "../errors";
-import { addressCreate, realEstateCreate } from "../interfaces";
+import { realEstateCreate } from "../interfaces";
 import { addressRepository, categoryRepository, realEstateRepository } from "../repositories";
-import { realEstateSchema } from "../schemas";
 
 
-const createRealEstate =async (payload: realEstateCreate,addressCreate: addressCreate, categoryId: number) => {
-    const address: Address = await addressRepository.create(addressCreate);
-    await addressRepository.save(address)
-    
-    const category: Category = (await categoryRepository.findOneBy({id: categoryId}))!
+const createRealEstate =async (payload: realEstateCreate) => {    
+    const category: Category = (await categoryRepository.findOneBy({id: payload.categoryId}))!
     if (!category){
         throw new AppError("Invalid category", 404);
     }
-
+    const address: Address = await addressRepository.create(payload.address);
+    await addressRepository.save(address)
+    
     const realEstate: RealEstate = realEstateRepository.create({
         ...payload,
         category: category,

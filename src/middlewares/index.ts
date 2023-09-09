@@ -7,6 +7,10 @@ import { verifyToken } from "./verifyToken.middleware";
 import { uniqueEmail } from "./uniqueEmail.middleware";
 import { uniqueCategory } from "./uniqueCategory.middleware";
 import { validateDate } from "./validateDate.middleware";
+import { addressExists } from "./addressExists.middleware";
+import { idCategoryRealEstateExists } from "./idCategoryRealEstateExists.middleware";
+import { uniqueDateRealEstate } from "./uniqueDateRealEstate.middleware";
+import { uniqueDateUser } from "./uniqueDateUser.middlewares";
 
 export default{
     handleError,
@@ -17,5 +21,9 @@ export default{
     verifyToken,
     uniqueEmail,
     uniqueCategory,
-    validateDate
+    validateDate,
+    addressExists,
+    idCategoryRealEstateExists,
+    uniqueDateRealEstate,
+    uniqueDateUser
 }

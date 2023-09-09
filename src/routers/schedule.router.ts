@@ -7,7 +7,11 @@ export const scheduleRouter: Router = Router();
 scheduleRouter.post("",
 middlewares.verifyToken,
 middlewares.validateDate,
+middlewares.uniqueDateRealEstate,
+middlewares.uniqueDateUser,
 scheduleControllers.createSchedule);
 
 scheduleRouter.get("/realEstate/:id",
+middlewares.verifyToken,
+middlewares.isAdmin,
 scheduleControllers.retrieveRealEstateSchedule)
