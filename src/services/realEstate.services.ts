@@ -2,6 +2,8 @@ import { Address, Category, RealEstate } from "../entities";
 import { AppError } from "../errors";
 import { addressCreate, realEstateCreate } from "../interfaces";
 import { addressRepository, categoryRepository, realEstateRepository } from "../repositories";
+import { realEstateSchema } from "../schemas";
+
 
 const createRealEstate =async (payload: realEstateCreate,addressCreate: addressCreate, categoryId: number) => {
     const address: Address = await addressRepository.create(addressCreate);
@@ -23,4 +25,13 @@ const createRealEstate =async (payload: realEstateCreate,addressCreate: addressC
     return realEstate
 }
 
-export default { createRealEstate}
+const readRealEstate =async () => {
+    const realEstate = await realEstateRepository.find({
+        relations: {
+            address: true
+        }
+    })
+    return realEstate;
+}
+
+export default { createRealEstate, readRealEstate}

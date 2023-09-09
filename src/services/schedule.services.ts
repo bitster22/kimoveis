@@ -13,4 +13,13 @@ const createSchedule =async (payload: ScheduleCreate, userId: number, realEstate
     
   };
 
-export default {createSchedule }
+  const retrieveRealEstateSchedule =async (realEstateId:number) => {
+    const realEstateSchedule = await scheduleRepository.find({
+      where:{
+        realEstate: {id: realEstateId}
+      }
+    })
+  return realEstateSchedule;
+  }
+
+export default {createSchedule,retrieveRealEstateSchedule }

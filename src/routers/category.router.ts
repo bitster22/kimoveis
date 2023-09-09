@@ -16,4 +16,4 @@ categoryRouter.post(
 
 categoryRouter.get("", categoryControllers.readCategory);
 
-categoryRouter.get("REAL ESTATE MUDAR QUANDO EU CRIAR A REALESTATE");
+categoryRouter.get("/:id/realEstate", categoryControllers.retrieveRealEstateCategory);

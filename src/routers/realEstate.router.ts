@@ -8,3 +8,8 @@ realEstateRouter.post(
     "",
     realEstateControllers.createRealEstate
 )
+
+realEstateRouter.get(
+    "",
+    realEstateControllers.readRealEstate
+)

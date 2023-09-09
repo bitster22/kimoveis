@@ -13,4 +13,11 @@ const readCategory =async (req: Request, res: Response): Promise<Response> => {
     return res.status(200).json(categories);
 }
 
-export default { createCategory, readCategory };
+const retrieveRealEstateCategory =async (req: Request, res: Response): Promise<Response> => {
+  const id: number = Number(req.params.id);
+  const realEstate = await categoryServices.retrieveRealEstateCategory(id);
+
+  return res.status(200).json(realEstate);
+}
+
+export default { createCategory, readCategory, retrieveRealEstateCategory };

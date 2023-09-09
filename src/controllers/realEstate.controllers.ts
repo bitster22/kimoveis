@@ -13,4 +13,9 @@ const createRealEstate =async (req: Request, res: Response): Promise<Response> =
     return res.status(201).json(realEstate);
 }
 
-export default { createRealEstate}
+const readRealEstate =async (req: Request, res: Response): Promise<Response> => {
+    const realEstate = await realEstateServices.readRealEstate();
+    return res.status(200).json(realEstate);
+}
+
+export default { createRealEstate, readRealEstate}

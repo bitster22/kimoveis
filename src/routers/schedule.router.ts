@@ -8,3 +8,6 @@ scheduleRouter.post("",
 middlewares.verifyToken,
 middlewares.validateDate,
 scheduleControllers.createSchedule);
+
+scheduleRouter.get("/realEstate/:id",
+scheduleControllers.retrieveRealEstateSchedule)
