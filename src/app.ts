@@ -1,14 +1,14 @@
-import 'reflect-metadata';
-import 'express-async-errors';
-import express from 'express';
-import{
-    userRouter,
-    sessionRouter,
-    categoryRouter,
-    realEstateRouter
-} from "./routers"
-import middlewares from './middlewares';
-import { scheduleRouter } from './routers/schedule.router';
+import "reflect-metadata";
+import "express-async-errors";
+import express from "express";
+import {
+  userRouter,
+  sessionRouter,
+  categoryRouter,
+  realEstateRouter,
+} from "./routers";
+import middlewares from "./middlewares";
+import { scheduleRouter } from "./routers/schedule.router";
 
 const app = express();
 app.use(express.json());

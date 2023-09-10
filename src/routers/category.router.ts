@@ -16,6 +16,8 @@ categoryRouter.post(
 
 categoryRouter.get("", categoryControllers.readCategory);
 
-categoryRouter.get("/:id/realEstate",
-middlewares.idCategoryRealEstateExists,
-categoryControllers.retrieveRealEstateCategory);
+categoryRouter.get(
+  "/:id/realEstate",
+  middlewares.idCategoryRealEstateExists,
+  categoryControllers.retrieveRealEstateCategory
+);

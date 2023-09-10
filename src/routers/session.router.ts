@@ -6,7 +6,7 @@ import { sessionControllers } from "../controllers";
 export const sessionRouter: Router = Router();
 
 sessionRouter.post(
-    "",
-    middlewares.validateBody(sessionSchema),
-    sessionControllers.createSession
-)
+  "",
+  middlewares.validateBody(sessionSchema),
+  sessionControllers.createSession
+);

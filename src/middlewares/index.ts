@@ -11,21 +11,23 @@ import { addressExists } from "./addressExists.middleware";
 import { idCategoryRealEstateExists } from "./idCategoryRealEstateExists.middleware";
 import { uniqueDateRealEstate } from "./uniqueDateRealEstate.middleware";
 import { uniqueDateUser } from "./uniqueDateUser.middlewares";
-import{ idRealEstateExists} from "./idRealEstateExists.middlewares"
+import { idRealEstateExists } from "./idRealEstateExists.middlewares";
+import { idRealEstateExistsParams } from "./idRealEstateExistsParams.middleware";
 
-export default{
-    handleError,
-    idExists,
-    isAdmin,
-    updateIsAdmin,
-    validateBody,
-    verifyToken,
-    uniqueEmail,
-    uniqueCategory,
-    validateDate,
-    addressExists,
-    idCategoryRealEstateExists,
-    uniqueDateRealEstate,
-    uniqueDateUser,
-    idRealEstateExists
-}
+export default {
+  handleError,
+  idExists,
+  isAdmin,
+  updateIsAdmin,
+  validateBody,
+  verifyToken,
+  uniqueEmail,
+  uniqueCategory,
+  validateDate,
+  addressExists,
+  idCategoryRealEstateExists,
+  uniqueDateRealEstate,
+  uniqueDateUser,
+  idRealEstateExists,
+  idRealEstateExistsParams,
+};

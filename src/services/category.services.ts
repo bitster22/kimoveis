@@ -10,27 +10,20 @@ const createCategory = async (payload: CategoryCreate): Promise<Category> => {
   return category;
 };
 
-const readCategory =async (): Promise<CategoryRead> => {
-    return categoryReadSchema.parse(await categoryRepository.find())
-}
+const readCategory = async (): Promise<CategoryRead> => {
+  return categoryReadSchema.parse(await categoryRepository.find());
+};
 
-const retrieveRealEstateCategory =async (categoryId:number) => {
-//   const realEstate = await realEstateRepository.find({
-//     where:{
-//       category: {id: categoryId}
-//     }
-//   })
-// return realEstate;
-
+const retrieveRealEstateCategory = async (categoryId: number) => {
   const category = await categoryRepository.findOne({
-    where:{
-      id: categoryId
+    where: {
+      id: categoryId,
     },
-    relations:{
-      realEstate: true
-    }
-  })
-  return category
-}
+    relations: {
+      realEstate: true,
+    },
+  });
+  return category;
+};
 
 export default { createCategory, readCategory, retrieveRealEstateCategory };

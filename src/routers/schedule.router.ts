@@ -5,16 +5,21 @@ import { scheduleCreateSchema } from "../schemas";
 
 export const scheduleRouter: Router = Router();
 
-scheduleRouter.post("",
-middlewares.verifyToken,
-middlewares.validateBody(scheduleCreateSchema),
-middlewares.idRealEstateExists,
-middlewares.validateDate,
-middlewares.uniqueDateRealEstate,
-middlewares.uniqueDateUser,
-scheduleControllers.createSchedule);
+scheduleRouter.post(
+  "",
+  middlewares.verifyToken,
+  middlewares.validateBody(scheduleCreateSchema),
+  middlewares.idRealEstateExists,
+  middlewares.validateDate,
+  middlewares.uniqueDateRealEstate,
+  middlewares.uniqueDateUser,
+  scheduleControllers.createSchedule
+);
 
-scheduleRouter.get("/realEstate/:id",
-middlewares.verifyToken,
-middlewares.isAdmin,
-scheduleControllers.retrieveRealEstateSchedule)
+scheduleRouter.get(
+  "/realEstate/:id",
+  middlewares.verifyToken,
+  middlewares.isAdmin,
+  middlewares.idRealEstateExistsParams,
+  scheduleControllers.retrieveRealEstateSchedule
+);

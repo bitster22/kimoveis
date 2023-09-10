@@ -11,7 +11,9 @@ export const uniqueCategory = async (
   const name: string = req.body.name;
   if (!name) return next();
 
-  const foundCategory: Category | null = await categoryRepository.findOneBy({ name });
+  const foundCategory: Category | null = await categoryRepository.findOneBy({
+    name,
+  });
   if (foundCategory) throw new AppError("Category already exists", 409);
 
   return next();

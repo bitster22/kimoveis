@@ -10,4 +10,4 @@ type UserUpdate = DeepPartial<User>;
 
 type UserRepo = Repository<User>;
 
-export { UserCreate, UserRead, UserReturn, UserUpdate, UserRepo}
+export { UserCreate, UserRead, UserReturn, UserUpdate, UserRepo };

@@ -10,9 +10,9 @@ export const updateIsAdmin = (
   const userId: number = Number(res.locals.decoded.sub);
   const paramId: number = Number(req.params.id);
 
-  if (!admin){
-    if(userId!==paramId){
-        throw new AppError("Insufficient permission", 403)
+  if (!admin) {
+    if (userId !== paramId) {
+      throw new AppError("Insufficient permission", 403);
     }
   }
 

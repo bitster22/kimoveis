@@ -8,16 +8,22 @@ export const uniqueDateUser = async (
   res: Response,
   next: NextFunction
 ): Promise<void> => {
-    const dateHour = {
-        date: req.body.date,
-        hour: req.body.hour
-    }
-    const userId: number = Number(res.locals.decoded.sub);
-  const foundSchedule: Schedule | null = await scheduleRepository.findOne({where:{
-    ...dateHour,
-    user: {id: userId}
-  }});
-  if (foundSchedule) throw new AppError("User schedule to this real estate at this date and time already exists", 409);
+  const dateHour = {
+    date: req.body.date,
+    hour: req.body.hour,
+  };
+  const userId: number = Number(res.locals.decoded.sub);
+  const foundSchedule: Schedule | null = await scheduleRepository.findOne({
+    where: {
+      ...dateHour,
+      user: { id: userId },
+    },
+  });
+  if (foundSchedule)
+    throw new AppError(
+      "User schedule to this real estate at this date and time already exists",
+      409
+    );
 
   return next();
 };

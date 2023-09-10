@@ -3,12 +3,12 @@ import { RealEstate } from "../entities";
 import { AppError } from "../errors";
 import { realEstateRepository } from "../repositories";
 
-export const idRealEstateExists = async (
+export const idRealEstateExistsParams = async (
   req: Request,
   res: Response,
   next: NextFunction
 ): Promise<void> => {
-  const realEstateId: number = Number(req.body.realEstateId);
+  const realEstateId: number = Number(req.params.id);
   const foundRealEstate: RealEstate | null = await realEstateRepository.findOne(
     {
       where: {

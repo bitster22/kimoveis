@@ -4,4 +4,10 @@ import categoryServices from "./category.services";
 import scheduleServices from "./schedule.services";
 import realEstateServices from "./realEstate.services";
 
-export { userServices, sessionServices, categoryServices, scheduleServices, realEstateServices};
+export {
+  userServices,
+  sessionServices,
+  categoryServices,
+  scheduleServices,
+  realEstateServices,
+};
