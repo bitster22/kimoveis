@@ -24,7 +24,7 @@ const realEstateCreateSchema = realEstateSchema.omit({
     // category: categoryCreateSchema.array(),
     categoryId: z.number().positive(),
     address: addressCreateSchema,
-    value: z.number().positive()
+    value: z.number().positive().or(z.string())
 })
 
 const realEstateReturnSchema = realEstateSchema

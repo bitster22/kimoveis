@@ -17,7 +17,7 @@ export const uniqueDateUser = async (
     ...dateHour,
     user: {id: userId}
   }});
-  if (foundSchedule) throw new AppError("Schedule for User already exists", 409);
+  if (foundSchedule) throw new AppError("User schedule to this real estate at this date and time already exists", 409);
 
   return next();
 };

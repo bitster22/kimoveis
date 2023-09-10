@@ -12,7 +12,7 @@ export const updateIsAdmin = (
 
   if (!admin){
     if(userId!==paramId){
-        throw new AppError("Insufficient permissions", 403)
+        throw new AppError("Insufficient permission", 403)
     }
   }
 

@@ -17,8 +17,11 @@ const readUser =async (): Promise<UserRead> => {
 const partialUpdateUser = async(
     user: User,
     payload: UserUpdate
-): Promise<User> =>{
-    return await userRepository.save({...user, ...payload})
+): Promise<UserReturn> =>{
+
+    const userUpdate: User = userRepository.create({...user, ...payload})
+    await userRepository.save(userUpdate)
+    return userReturnSchema.parse(userUpdate)
 }
 
 const destroyUser =async (user: User): Promise<void> => {

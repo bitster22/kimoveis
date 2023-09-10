@@ -11,6 +11,7 @@ import { addressExists } from "./addressExists.middleware";
 import { idCategoryRealEstateExists } from "./idCategoryRealEstateExists.middleware";
 import { uniqueDateRealEstate } from "./uniqueDateRealEstate.middleware";
 import { uniqueDateUser } from "./uniqueDateUser.middlewares";
+import{ idRealEstateExists} from "./idRealEstateExists.middlewares"
 
 export default{
     handleError,
@@ -25,5 +26,6 @@ export default{
     addressExists,
     idCategoryRealEstateExists,
     uniqueDateRealEstate,
-    uniqueDateUser
+    uniqueDateUser,
+    idRealEstateExists
 }

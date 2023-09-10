@@ -20,9 +20,9 @@ const createRealEstate =async (payload: realEstateCreate) => {
     })
 
     await realEstateRepository.save(realEstate);
-    realEstate.value = realEstate.value.toString()
+    // realEstate.value = realEstate.value.toString()
 
-    return realEstateFullReturnSchema.parse(realEstate);
+    return realEstate;
 }
 
 const readRealEstate =async () => {
@@ -32,7 +32,8 @@ const readRealEstate =async () => {
         }
     })
     // console.log(realEstateSchema.array().parse(realEstate))
-    return realEstateReturnSchema.array().parse(realEstate);
+    
+    return realEstate;
 }
 
 export default { createRealEstate, readRealEstate}

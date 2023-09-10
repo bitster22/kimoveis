@@ -9,7 +9,6 @@ export const addressExists = async (
   next: NextFunction
 ): Promise<void> => {
     const address: Address = {...req.body.address}
-    console.log("Endereço: ",address)
 
     const foundAddress: Address | null = await addressRepository.findOne({where:{
         street: address.street,
@@ -18,7 +17,6 @@ export const addressExists = async (
         city: address.city,
         state: address.state
     }})
-    console.log(foundAddress);
 
     if(foundAddress) throw new AppError("Address already exists", 409);
     return next();

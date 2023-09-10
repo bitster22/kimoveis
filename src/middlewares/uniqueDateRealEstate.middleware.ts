@@ -8,7 +8,6 @@ export const uniqueDateRealEstate = async (
   res: Response,
   next: NextFunction
 ): Promise<void> => {
-    console.log(req.body)
     const dateHour = {
         date: req.body.date,
         hour: req.body.hour
@@ -18,8 +17,7 @@ export const uniqueDateRealEstate = async (
     ...dateHour,
     realEstate: {id: realEstateId}
   }});
-  console.log(foundSchedule)
-  if (foundSchedule) throw new AppError("Schedule for Real Estate already exists", 409);
+  if (foundSchedule) throw new AppError("Schedule to this real estate at this date and time already exists", 409);
 
   return next();
 };
